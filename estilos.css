@@ -1,0 +1,122 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Love+Ya+Like+A+Sister&display=swap'); 
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+    font-family: "Inter", sans-serif;
+}
+
+#grid{
+    display: grid;/* si no defino el template, la grilla va a tener una sola columna, y tantas filas como hijos tiene la grilla. */
+    gap:0.7em;
+}
+
+header{
+    padding: 1em;
+    text-align: center;
+    align-content: center;
+}
+
+#logo{
+    font-family: "Love Ya Like A Sister", cursive;
+    font-size: 4em;
+    color:#01803f;
+}
+
+h1{
+    font-weight:normal ;
+    font-size: 1.5em;
+}
+
+#grid img{
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+#grid article{
+    overflow: hidden;
+}
+article{
+    position: relative;
+    border-radius: 15px;
+}
+
+article h2{
+    position:absolute;
+    top:1.3em;
+    right:0;
+    font-size: 1.1em;
+    font-weight: 300;
+    background-color: white;
+    padding: 0.5em 1em;
+    border-radius: 50px 0 0 50px;
+}
+
+article p{
+    position: absolute;
+    bottom:0;
+    left:0;
+    background-color: rgba(0, 0, 0, 0.856);
+    color:white;
+    font-size: 0.8em;
+    padding: 0.7em;
+}
+
+/* TABLET */
+
+@media all and (min-width:768px){
+    #grid{
+        grid-template-columns:1fr 1fr;
+    }
+
+    header, #art3{
+        grid-column:span 2;
+    }
+}
+
+@media all and (min-width:1200px){
+
+    #grid{
+        grid-template-columns: 2fr 1fr 2fr;
+        grid-template-rows: 1fr 1fr 1fr 2fr;
+        height: 100vh;
+        gap:1.3em
+    }
+
+    header{
+        grid-column: span 1;
+    }
+
+    #art1, #art2 {
+        grid-row:span 2;
+    }
+
+    #art3{
+        grid-column: span 1;
+        grid-row: span 2;
+    }
+
+    #art4{
+        grid-column: span 2;
+        grid-row:span 2
+    }
+
+    #art3 img{
+        object-position: top;
+    }
+
+    article p{
+        width: 70%;
+        opacity: 0;
+        transition: 0.3s;
+    }
+
+    article:hover p{
+        opacity: 1;
+    }
+}
+
